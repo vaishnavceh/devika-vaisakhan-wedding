@@ -19,8 +19,22 @@ export const Section04Reception: React.FC<SectionProps> = ({ reception }) => {
   };
 
   return (
-    <section id="reception" className="relative py-20 sm:py-28 px-4 sm:px-8 bg-ivory-100/70 parchment-grain border-t border-gold-500/20">
-      <div className="max-w-4xl mx-auto">
+    <section id="reception" className="relative py-20 sm:py-28 px-4 sm:px-8 bg-ivory-100/70 parchment-grain border-t border-gold-500/20 overflow-hidden">
+      {/* Ambient Watercolor Sunset Background Surface */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <picture>
+          <source srcSet="/images/surface-sunset-bg.webp" type="image/webp" />
+          <img
+            src="/images/watercolor-sunset-portrait.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-center opacity-10 sm:opacity-15 scale-105 filter blur-[3px]"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-gradient-to-b from-ivory-100/95 via-ivory-100/85 to-ivory-100/95" />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-100 text-forest-700 text-[11px] font-sans font-semibold tracking-[0.2em] uppercase mb-3">

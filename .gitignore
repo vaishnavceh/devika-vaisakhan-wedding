@@ -10,7 +10,8 @@ build/
 *.local
 
 # Monorepo legacy / local archives (kept on local disk, excluded from Vercel)
-wedding-invitation/
+/wedding-invitation/
+/IMAGES/
 
 # Environment files
 .env

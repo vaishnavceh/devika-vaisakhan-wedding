@@ -41,7 +41,23 @@ export const Section07Closing: React.FC<SectionProps> = ({ data }) => {
 
   return (
     <footer className="relative py-20 sm:py-28 px-4 sm:px-8 bg-ivory-100 parchment-grain border-t border-gold-500/30 text-center overflow-hidden">
-      <div className="max-w-2xl mx-auto">
+      {/* Ambient Watercolor Sunset Background Surface */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <picture>
+          <source srcSet="/images/surface-sunset-bg.webp" type="image/webp" />
+          <img
+            src="/images/watercolor-sunset-portrait.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-center opacity-15 sm:opacity-20 scale-105 filter blur-[2px] transition-opacity duration-1000"
+          />
+        </picture>
+        {/* Warm twilight gradients ensuring crisp contrast for editorial text */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ivory-100/90 via-ivory-100/80 to-ivory-100/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-ivory-100/40 to-ivory-100/90" />
+      </div>
+
+      <div className="relative z-10 max-w-2xl mx-auto">
         {/* Crest Motif */}
         <div className="mb-6">
           <HeirloomCrest />
@@ -54,24 +70,34 @@ export const Section07Closing: React.FC<SectionProps> = ({ data }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* Authentic Ceremonial Couple Portrait Card */}
-          <div className="relative my-8 max-w-[280px] sm:max-w-[320px] mx-auto group">
-            <div className="relative p-2 rounded-sm bg-ivory-50 border border-gold-500/40 shadow-heirloom">
-              <div className="overflow-hidden rounded-xs aspect-[3/4] bg-ivory-200">
+          {/* Authentic Ceremonial Watercolor Couple Portrait Card (16:9) */}
+          <div className="relative my-6 sm:my-8 max-w-[340px] sm:max-w-xl md:max-w-2xl mx-auto group">
+            <div className="relative p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-ivory-50/90 backdrop-blur-sm border border-gold-500/50 shadow-heirloom overflow-hidden">
+              <div className="overflow-hidden rounded-lg sm:rounded-xl aspect-[16/9] bg-ivory-200 relative">
                 <picture>
-                  <source srcSet="/images/couple-ceremony.webp" type="image/webp" />
+                  <source
+                    media="(max-width: 640px)"
+                    srcSet="/images/watercolor-sunset-portrait-mobile.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcSet="/images/watercolor-sunset-portrait.webp"
+                    type="image/webp"
+                  />
                   <img
-                    src="/images/couple-ceremony.jpg"
-                    alt="Dr. Devika Rani P.S. and Vaisakhan M.L. seated together"
-                    width="1200"
-                    height="1600"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
+                    src="/images/watercolor-sunset-portrait.jpg"
+                    alt="Dr. Devika Rani P.S. and Vaisakhan M.L. — Watercolor Sunset Couple Portrait"
+                    width="1672"
+                    height="941"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-103"
                     loading="lazy"
                   />
                 </picture>
+                {/* Fine Golden Inset Border */}
+                <div className="absolute inset-1 sm:inset-2 rounded-md sm:rounded-lg border border-gold-400/40 pointer-events-none" />
               </div>
-              <div className="pt-2.5 pb-1 text-center">
-                <p className="font-serif italic text-xs text-gold-700 tracking-wide">
+              <div className="pt-2.5 sm:pt-3 pb-1 text-center">
+                <p className="font-serif italic text-xs sm:text-sm text-gold-700 tracking-wide">
                   &ldquo;To stand by you is my heart&apos;s chosen.&rdquo;
                 </p>
               </div>
