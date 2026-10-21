@@ -15,7 +15,7 @@ services:
         sync: false
         # Set to your Vercel production frontend URL e.g. https://devika-vaisakhan-wedding.vercel.app
       - key: TEMPLE_MAP_URL
-        value: https://share.google/JoWJRWtprleSe488s
+        value: https://maps.app.goo.gl/63vEAnoGgeJPthKR8
       - key: RESIDENCE_MAP_URL
         value: https://maps.app.goo.gl/tk4SToeGGwNHcAUZ7?g_st=aw
       - key: BRIDE_CONTACT_1

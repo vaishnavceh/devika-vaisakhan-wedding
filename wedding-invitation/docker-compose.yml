@@ -13,7 +13,7 @@ services:
       - NODE_ENV=production
       - PORT=5000
       - CORS_ORIGIN=${CORS_ORIGIN:-*}
-      - TEMPLE_MAP_URL=${TEMPLE_MAP_URL:-https://share.google/JoWJRWtprleSe488s}
+      - TEMPLE_MAP_URL=${TEMPLE_MAP_URL:-https://maps.app.goo.gl/63vEAnoGgeJPthKR8}
       - RESIDENCE_MAP_URL=${RESIDENCE_MAP_URL:-https://maps.app.goo.gl/tk4SToeGGwNHcAUZ7?g_st=aw}
       - BRIDE_CONTACT_1=${BRIDE_CONTACT_1:-9605941066}
       - BRIDE_CONTACT_2=${BRIDE_CONTACT_2:-9526516107}

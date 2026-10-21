@@ -38,7 +38,7 @@ flowchart LR
 * **Date**: Sunday, 06 December 2026
 * **Muhurtham**: 12:05 PM – 12:25 PM (Asia/Kolkata)
 * **Venue**: Peroor Karunalloor Bhagavathy Temple, Kollam
-* **Verified Google Maps Link**: [Peroor Karunalloor Bhagavathy Temple](https://maps.app.goo.gl/UB9bMpfYYXM9pXt48)
+* **Verified Google Maps Link**: [Peroor Karunalloor Bhagavathy Temple](https://maps.app.goo.gl/63vEAnoGgeJPthKR8)
 
 ---
 

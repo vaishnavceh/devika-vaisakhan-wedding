@@ -136,7 +136,7 @@ export const initialWeddingData: WeddingData = {
       locationDetails: "Historic Karunalloor Bhagavathy Temple, Peroor",
       mapUrl:
         import.meta.env.VITE_TEMPLE_MAP_URL ||
-        "https://share.google/JoWJRWtprleSe488s",
+        "https://maps.app.goo.gl/63vEAnoGgeJPthKR8",
       orderNote:
         "The auspicious Muhurtham occurs precisely between 12:05 PM and 12:25 PM.",
     },
