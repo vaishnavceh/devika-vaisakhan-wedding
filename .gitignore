@@ -9,6 +9,9 @@ dist-ssr/
 build/
 *.local
 
+# Monorepo legacy / local archives (kept on local disk, excluded from Vercel)
+wedding-invitation/
+
 # Environment files
 .env
 .env.local

@@ -58,21 +58,21 @@ flowchart LR
 ## 3. Architecture & Features
 
 ```
-wedding-invitation/
-├── frontend/                     # React + Vite + TypeScript + Tailwind CSS
-│   ├── src/
-│   │   ├── components/           # Nilavilakku, AalilaLeaf, Jasmine, AudioPlayer, Navigation
-│   │   ├── sections/             # 7 Editorial Sections (Hero, Invite, Ceremony, Reception, Countdown, Blessings, Closing)
-│   │   ├── hooks/                # useCountdown (Timezone-safe), useWeddingData (Dual-mode loader)
-│   │   ├── lib/                  # RFC-compliant .ICS calendar generator, Web Share API
-│   │   ├── data/                 # Authoritative fallback wedding data
-│   │   ├── assets/               # Mandala texture & local assets
-│   │   └── styles/               # Tailwind CSS & custom Kasavu borders
-│   ├── public/                   # Ambient instrumental bgm.mp3 & icons
-│   ├── Dockerfile                # Multi-stage build + Nginx static server
-│   ├── vercel.json               # SPA rewrites, security & caching headers
-│   └── package.json
-├── backend/                      # Node.js + Express + TypeScript REST API
+devika-vaisakhan-wedding/
+├── src/
+│   ├── components/       # Nilavilakku, AalilaLeaf, Jasmine, AudioPlayer, Navigation
+│   ├── sections/         # 7 Editorial Sections (Hero, Invite, Ceremony, Reception, Countdown, Blessings, Closing)
+│   ├── hooks/            # useCountdown (Timezone-safe Asia/Kolkata), useWeddingData
+│   ├── lib/              # RFC-compliant .ICS calendar generator, Web Share API
+│   ├── data/             # Authoritative wedding data
+│   ├── assets/           # Mandala texture & visual elements
+│   └── styles/           # Tailwind CSS & custom Kasavu borders
+├── public/               # Ambient Agam audio (bgm.mp3) & real couple portraits
+├── api/                  # Standalone Vercel Serverless Functions (/api/wedding, /api/health)
+├── vercel.json           # Vercel Vite routing & serverless configuration
+├── vite.config.ts        # Vite build tool configuration
+└── package.json          # Standalone React 18 + Vite dependencies
+```
 │   ├── src/
 │   │   ├── routes/               # GET /api/health, GET /api/wedding
 │   │   ├── middleware/           # Helmet, dynamic CORS, error handlers
@@ -100,74 +100,39 @@ wedding-invitation/
 
 ## 4. Local Development
 
-### Prerequisites
-* Node.js v18+ (tested on v24.19.0)
-* npm v9+
-
-### Option A: Run Directly with Node / Vite
-
-#### 1. Start the Backend API
 ```bash
-cd backend
 npm install
 npm run dev
-# Server running on http://localhost:5000
 ```
-
-#### 2. Start the Frontend
-```bash
-cd ../frontend
-npm install
-npm run dev
-# Client running on http://localhost:3000
-```
-
----
-
-### Option B: Run with Docker Compose
-```bash
-docker-compose up --build
-```
-* Frontend: `http://localhost:3000`
-* Backend API: `http://localhost:5000/api/wedding`
-* Health Check: `http://localhost:5000/api/health`
+* **Local Website**: `http://localhost:3000`
+* **Production Build**: `npm run build`
+* **Local Preview of Production Build**: `npm run preview`
 
 ---
 
 ## 5. Deployment Guides
 
-### Frontend Deployment to Vercel
-1. Push the repository to GitHub.
-2. Import the `wedding-invitation/frontend` directory as a new Project on Vercel.
-3. Settings:
+### 1-Click Standalone Deployment to Vercel
+1. Link your GitHub repository `devika-vaisakhan-wedding` to Vercel.
+2. Vercel automatically detects:
    * **Framework Preset**: Vite
+   * **Root Directory**: `./`
    * **Build Command**: `npm run build`
    * **Output Directory**: `dist`
-4. Environment Variables:
-   * `VITE_API_BASE_URL`: `https://your-render-backend-url.onrender.com` (Optional; site functions without it)
-   * `VITE_TEMPLE_MAP_URL`: `https://maps.app.goo.gl/UB9bMpfYYXM9pXt48`
-   * `VITE_RESIDENCE_MAP_URL`: `https://www.google.com/maps/search/?api=1&query=Amerivila+Veedu,+Thattarkonam+P.O.,+Peroor,+Kollam`
-
-### Backend Deployment to Render
-1. In Render, select **New Web Service** and link your repository.
-2. Choose **Docker Runtime** with context `./backend` and Dockerfile `./backend/Dockerfile`.
-   *(Or click "Blueprint" to use the included `render.yaml`)*
-3. Environment Variables:
-   * `NODE_ENV`: `production`
-   * `PORT`: `10000` (Render default)
-   * `CORS_ORIGIN`: Your deployed Vercel domain (e.g., `https://devika-vaisakhan.vercel.app`)
-4. Health check path: `/api/health`.
+3. Click **Deploy**. Done!
+*(No multi-service configuration or subfolder selection required. The website runs 100% standalone on Vercel's global Edge CDN).*
 
 ---
 
 ## 6. Verification & Quality Assurance Checklist
 
-- [x] Strict TypeScript compilation for both frontend and backend (`tsc --noEmit`)
+- [x] Strict TypeScript compilation (`tsc --noEmit`)
 - [x] Production build passes (`npm run build`)
 - [x] Exact family details verified from bride's parents' perspective
-- [x] Temple Google Maps URL verified (`https://maps.app.goo.gl/UB9bMpfYYXM9pXt48`)
+- [x] Temple Google Maps URL verified (`https://maps.app.goo.gl/63vEAnoGgeJPthKR8`)
+- [x] Residence Google Maps URL verified (`https://maps.app.goo.gl/tk4SToeGGwNHcAUZ7?g_st=aw`)
 - [x] Reception date confirmed for Saturday, 05 Dec 2026 (prior to ceremony)
 - [x] Responsive layout tested across mobile viewports (360px - 1440px)
 - [x] Offline / standalone operation verified (zero backend dependency for core UX)
 - [x] Web Share API with automatic clipboard fallback
-- [x] RFC 5545 `.ics` file generator tested
+- [x] RFC 5545 `.ics` calendar invitation generator tested

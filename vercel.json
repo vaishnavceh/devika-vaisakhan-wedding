@@ -1,8 +1,15 @@
 {
-  "buildCommand": "npm --prefix wedding-invitation/frontend run build",
-  "outputDirectory": "wedding-invitation/frontend/dist",
+  "framework": "vite",
   "cleanUrls": true,
   "rewrites": [
+    {
+      "source": "/api/wedding",
+      "destination": "/api/wedding.js"
+    },
+    {
+      "source": "/api/health",
+      "destination": "/api/health.js"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
