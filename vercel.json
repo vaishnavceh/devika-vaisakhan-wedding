@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm --prefix wedding-invitation/frontend run build",
+  "outputDirectory": "wedding-invitation/frontend/dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ivory: #F8F4EC;
+    --color-burgundy: #551F32;
+    --color-gold: #B49360;
+    --color-forest: #35483D;
+    --color-charcoal: #252321;
+    --color-parchment: #EDE5D8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #F8F4EC;
+    color: #252321;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Kerala Kasavu Golden Zari Border Motif */
+.kasavu-border {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #B49360 0px,
+    #B49360 6px,
+    #9B7C4B 6px,
+    #9B7C4B 8px,
+    #F8F4EC 8px,
+    #F8F4EC 12px
+  );
+  height: 4px;
+}
+
+.kasavu-border-vertical {
+  background-image: repeating-linear-gradient(
+    180deg,
+    #B49360 0px,
+    #B49360 6px,
+    #9B7C4B 6px,
+    #9B7C4B 8px,
+    #F8F4EC 8px,
+    #F8F4EC 12px
+  );
+  width: 4px;
+}
+
+/* Subtle Parchment Paper Grain Texture */
+.parchment-grain {
+  background-image: radial-gradient(rgba(180, 147, 96, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Subtle Deckled Edge Effect */
+.deckle-card {
+  position: relative;
+  box-shadow: 
+    0 1px 3px rgba(37, 35, 33, 0.06),
+    0 10px 30px -5px rgba(85, 31, 50, 0.05),
+    0 0 0 1px rgba(180, 147, 96, 0.22);
+}
+
+/* Gold Shimmer Text Accent */
+.gold-shimmer {
+  background: linear-gradient(135deg, #7B6036 0%, #B49360 40%, #E7D7BA 70%, #9B7C4B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F4EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B49360;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7B6036;
+}
+
+/* Reduced Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

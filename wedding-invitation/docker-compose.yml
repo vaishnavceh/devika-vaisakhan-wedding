@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: wedding-backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-5000}:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - CORS_ORIGIN=${CORS_ORIGIN:-*}
+      - TEMPLE_MAP_URL=${TEMPLE_MAP_URL:-https://share.google/JoWJRWtprleSe488s}
+      - RESIDENCE_MAP_URL=${RESIDENCE_MAP_URL:-https://maps.app.goo.gl/tk4SToeGGwNHcAUZ7?g_st=aw}
+      - BRIDE_CONTACT_1=${BRIDE_CONTACT_1:-9605941066}
+      - BRIDE_CONTACT_2=${BRIDE_CONTACT_2:-9526516107}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: wedding-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: devika-vaisakhan-wedding-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        sync: false
+        # Set to your Vercel production frontend URL e.g. https://devika-vaisakhan-wedding.vercel.app
+      - key: TEMPLE_MAP_URL
+        value: https://share.google/JoWJRWtprleSe488s
+      - key: RESIDENCE_MAP_URL
+        value: https://maps.app.goo.gl/tk4SToeGGwNHcAUZ7?g_st=aw
+      - key: BRIDE_CONTACT_1
+        value: "9605941066"
+      - key: BRIDE_CONTACT_2
+        value: "9526516107"
+    healthCheckPath: /api/health
